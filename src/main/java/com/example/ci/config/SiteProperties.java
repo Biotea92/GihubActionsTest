@@ -20,4 +20,5 @@ public class SiteProperties {
         this.authorName = authorName;
         this.authorEmail = authorEmail;
     }
+
 }
