@@ -45,8 +45,8 @@ jobs:
       # main브랜치인 경우 application.properties파일 제작한다.
       - name: Main Branch Make application-prd.properties
         run: |
-          cd ./src/main/resources \
-          touch ./application-prd.properties \
+          cd ./src/main/resources 
+          touch ./application-prd.properties 
           echo "${{ secrets.PROPERTIES_PRD }}" > ./application-prd.properties
         shell: bash
 
