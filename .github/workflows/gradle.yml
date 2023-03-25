@@ -55,10 +55,3 @@ jobs:
 #      with:
 #        arguments: build
       run : ./gradlew clean build
-
-    # PR 에서 테스트 진행시 오류가 발생한 경우 표시
-    - name: Publish Unit Test Test Result
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: ${{ always() }}
-      with:
-        files: build/test-results/**/*.xml
