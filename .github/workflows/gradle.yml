@@ -12,9 +12,13 @@ name: Java CI with Gradle
 # event trigger
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - 'develop'
+      - 'feature/*'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'develop'
+      - 'feature/*'
 
 permissions:
   contents: read
@@ -52,11 +56,7 @@ jobs:
 #        arguments: build
       run : ./gradlew clean build
 
-#     local환경으로 테스트 진행
-#    - name: Test with Gradle
-#      run: SPRING_PROFILES_ACTIVE=[local] ./gradlew clean test
-
-    # 해당 내용은 PR에서 테스트 진행시 오류가 발생한 경우 표시
+    # PR 에서 테스트 진행시 오류가 발생한 경우 표시
     - name: Publish Unit Test Test Result
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: ${{ always() }}
