@@ -49,7 +49,7 @@ jobs:
 
       # 테스트 진행
       - name: main Test
-        if: contain(github.ref, 'main')
+        if: contains(github.ref, 'main')
         run: ./gradlew clean test
         shell: bash
 
