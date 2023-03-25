@@ -29,8 +29,9 @@ jobs:
 
     ## gradle cashing -> 나중에 빌드시간을 줄이고 싶을때 적용해보자
 
-    ## jdk setting
+    ## checkout
     - uses: actions/checkout@v3
+    ## jdk setting
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
@@ -40,7 +41,7 @@ jobs:
 
     ## application properties 환경별로 설정 하기
 
-
+    ## Gradle 권한 부여
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
@@ -50,3 +51,13 @@ jobs:
 #      with:
 #        arguments: build
       run : ./gradlew clean build
+
+    # local환경으로 테스트 진행
+    - name: Test with Gradle
+      run: SPRING_PROFILES_ACTIVE=[local] ./gradlew clean test
+
+    - name: Publish Unit Test Result
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: ${{ always() }}
+      with:
+        files: build/test--results/**/*.xml
