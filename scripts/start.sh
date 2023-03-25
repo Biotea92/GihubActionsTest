@@ -6,6 +6,7 @@ JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
 APP_LOG="$PROJECT_ROOT/application.log"
 ERROR_LOG="$PROJECT_ROOT/error.log"
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
+APPLICATION_PRD="$PROJECT_ROOT/src/main/resources/application-prd.properties"
 
 TIME_NOW=$(date +%c)
 
@@ -15,7 +16,7 @@ cp $PROJECT_ROOT/build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
 echo "$TIME_NOW > $JAR_FILE 파일 실행" >> $DEPLOY_LOG
-nohup java -jar -Dspring.profile.active=prd -Duser.timezone=Asia/Seoul $JAR_FILE > $APP_LOG 2> $ERROR_LOG &
+nohup java -jar --spring.config.location=file:$APPLICATION_PRD -Duser.timezone=Asia/Seoul $JAR_FILE > $APP_LOG 2> $ERROR_LOG &
 
 CURRENT_PID=$(pgrep -f $JAR_FILE)
 echo "$TIME_NOW > 실행된 프로세스 아이디 $CURRENT_PID 입니다." >> $DEPLOY_LOG
