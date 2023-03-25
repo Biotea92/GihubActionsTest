@@ -18,9 +18,4 @@ class SitePropertiesTest {
         Assertions.assertEquals("Woo-local", siteProperties.getAuthorName());
         Assertions.assertEquals("Woo@a.com-local", siteProperties.getAuthorEmail());
     }
-
-    @Test
-    void test2() {
-        Assertions.assertEquals("fail", siteProperties.getAuthorName());
-    }
 }
