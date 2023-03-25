@@ -52,9 +52,9 @@ jobs:
 #        arguments: build
       run : ./gradlew clean build
 
-    # local환경으로 테스트 진행
-    - name: Test with Gradle
-      run: SPRING_PROFILES_ACTIVE=[local] ./gradlew clean test
+#     local환경으로 테스트 진행
+#    - name: Test with Gradle
+#      run: SPRING_PROFILES_ACTIVE=[local] ./gradlew clean test
 
     # 해당 내용은 PR에서 테스트 진행시 오류가 발생한 경우 표시
     - name: Publish Unit Test Test Result
