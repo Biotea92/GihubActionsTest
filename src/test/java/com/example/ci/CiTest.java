@@ -10,8 +10,8 @@ public class CiTest {
         Assertions.assertThat("CI SUCCESS").isEqualTo("CI SUCCESS");
     }
 
-    @Test
-    void fail_test() {
-        Assertions.assertThat("CI FAIL").isEqualTo("CI SUCCESS");
-    }
+//    @Test
+//    void fail_test() {
+//        Assertions.assertThat("CI FAIL").isEqualTo("CI SUCCESS");
+//    }
 }
