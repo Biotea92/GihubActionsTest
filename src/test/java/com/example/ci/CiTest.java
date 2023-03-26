@@ -7,6 +7,7 @@ public class CiTest {
 
     @Test
     void test() {
+
         Assertions.assertThat("CI SUCCESS").isEqualTo("CI SUCCESS");
     }
 }
